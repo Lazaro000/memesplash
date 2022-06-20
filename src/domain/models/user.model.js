@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 
 import uuid from 'uuid-random';
-import { InvalidIdFormatException } from '../errors/invalid-id-format.exception';
-import { InvalidEmailFormatException } from '../errors/invalid-email-format.exception';
-import { InvalidNameFormatException } from '../errors/invalid-name-format.exception';
-import { InvalidPasswordFormatException } from '../errors/invalid-password-format.exception';
+import { InvalidIdFormatException } from '../errors/invalid-id-format.exception.js';
+import { InvalidEmailFormatException } from '../errors/invalid-email-format.exception.js';
+import { InvalidNameFormatException } from '../errors/invalid-name-format.exception.js';
+import { InvalidPasswordFormatException } from '../errors/invalid-password-format.exception.js';
 import { hash } from 'bcrypt';
 
 const HASH_SALT = 10;
@@ -31,25 +31,25 @@ export class UserModel {
         this.images = images;
     }
 
-    validateId(id){
+    static validateId(id){
         return uuid.test(id);
     }
 
-    validateName(name){
+    static validateName(name){
         const nameRegex =
             /^(?![\s-'])(?!.*[\s-']{2})(?!.*[\s-']$)[A-ZÀ-ÖØ-öø-ÿ\s-']{2,30}$/i;
 
         return nameRegex.test(name);
     }
 
-    validateEmail(email){
+    static validateEmail(email){
         const emailRegex =
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         return emailRegex.test(email);
     }
 
-    validatePassword(password){
+    static validatePassword(password){
         return (
             password.length >= 8 &&
             password.length <= 30 &&

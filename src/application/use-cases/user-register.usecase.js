@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { UserModel } from '../../domain/models/user.model'
-import { UserRepository } from '../../infrastructure/repositories/user.repository';
-import { UserEmailAlreadyInUseException } from '../errors/user-email-already-in-use.exception';
-import { UserIdAlreadyInUseException } from '../errors/user-id-already-in-use.exception copy';
+import { UserModel } from '../../domain/models/user.model.js'
+import { UserRepository } from '../../infrastructure/repositories/user.repository.js';
+import { UserEmailAlreadyInUseException } from '../errors/user-email-already-in-use.exception.js';
+import { UserIdAlreadyInUseException } from '../errors/user-id-already-in-use.exception.js';
 
-const userRegisterUseCase = async (id, name, email, password) => {
+export const userRegisterUseCase = async (id, name, email, password) => {
     const newUser = await UserModel.create(id, name, email, password);
 
     // TODO: Comprobar si existe Id duplicado

@@ -1,0 +1,3 @@
+docker system prune --all
+docker volume prune 
+docker-compose up
