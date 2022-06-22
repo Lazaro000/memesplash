@@ -14,6 +14,7 @@
   "author": "Lazaro",
   "license": "ISC",
   "devDependencies": {
+    "@ngneat/falso": "5.7.0",
     "ava": "4.3.0",
     "eslint": "8.17.0",
     "eslint-config-prettier": "8.5.0",
@@ -21,6 +22,7 @@
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-n": "15.2.2",
     "eslint-plugin-promise": "6.0.0",
+    "got": "12.1.0",
     "node-fetch": "^3.2.6",
     "nodemon": "2.0.16",
     "prettier": "2.6.2"
