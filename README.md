@@ -28,3 +28,10 @@
     - URL de la foto
 - images:
     - Array de ids de las imágenes subidas por el usuario
+
+### Resetear Docker
+```
+docker system prune --all
+docker volume prune 
+docker-compose up
+```
