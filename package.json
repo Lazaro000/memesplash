@@ -9,7 +9,9 @@
     "docker:up": "docker-compose -p memesplash up -d",
     "docker:down": "docker-compose -p memesplash down",
     "docker:down-volumes": "docker-compose -p memesplash down -v",
-    "start:all": "docker-compose -p memesplash up -d && nodemon src/index.js"
+    "start:all": "docker-compose -p memesplash up -d && nodemon src/index.js",
+    "lint": "eslint --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [],
   "author": "Lazaro",
