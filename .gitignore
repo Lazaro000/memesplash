@@ -1,2 +1,7 @@
 node_modules
 .env
+
+# Imagenes
+images/*.jpg
+images/*.png
+images/*.gif
