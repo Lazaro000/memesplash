@@ -1,23 +1,30 @@
-/* eslint-disable no-unused-vars */
+import { InvalidImageFormatException } from '../errors/invalid-image-format.exception.js';
+import { ImageFormatVO } from '../value-objects/image-format.vo.js';
+import { IntGtZeroVO } from '../value-objects/int-gt-zero.vo.js';
+import { PreviousDateVO } from '../value-objects/previous-date.vo.js';
+import { TitleVO } from '../value-objects/title.vo.js';
+import { UrlSlugVO } from '../value-objects/url-slug.vo.js';
+import { UuidVO } from '../value-objects/uuid.vo.js';
+
 /**
  * Image uploaded in the application
  */
 export class ImageModel {
     /**
      * Constructor
-     * @param {String} title Image unique identifier
-     * @param {String} id Image title
-     * @param {String} src Image filename
-     * @param {ImageFormat} format Image formate
-     * @param {String} size Image size in
-     * @param {String} height Image height in pixels
-     * @param {String} width Image width in pixels
-     * @param {String} createdAt Images creation date
+     * @param {UuidVO} id Image unique identifier
+     * @param {TitleVO} title Image title
+     * @param {UrlSlugVO} slug Image filename
+     * @param {ImageFormatVO} format Image format
+     * @param {IntGtZeroVO} size Image size in bytes
+     * @param {IntGtZeroVO} height Image height in pixels
+     * @param {IntGtZeroVO} width Image width in pixels
+     * @param {PreviousDateVO} createdAt Image creation date
      */
-    constructor(id, title, src, format, size, height, width, createdAt){
+    constructor(id, title, slug, format, size, height, width, createdAt) {
         this.id = id;
         this.title = title;
-        this.src = src;
+        this.slug = slug;
         this.format = format;
         this.size = size;
         this.height = height;
@@ -25,4 +32,17 @@ export class ImageModel {
         this.createdAt = createdAt;
     }
 
+    assertIsValid(id, title, slug, format, size, height, width, createdAt) {
+        if (
+            !(id instanceof UuidVO) ||
+            !(title instanceof TitleVO) ||
+            !(slug instanceof UrlSlugVO) ||
+            !(format instanceof ImageFormatVO) ||
+            !(size instanceof IntGtZeroVO) ||
+            !(height instanceof IntGtZeroVO) ||
+            !(width instanceof IntGtZeroVO) ||
+            !(createdAt instanceof PreviousDateVO)
+        )
+            throw new InvalidImageFormatException();
+    }
 }
