@@ -1,3 +1,6 @@
 package.json
 package-lock.json
 .eslintrc.cjs
+
+lint.yml
+test.yml
