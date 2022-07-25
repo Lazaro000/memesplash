@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "ava ./test/**/*.test.js",
+    "test": "ava test/user-register.test.js",
+    "test:all": "ava ./test/**/*.test.js",
     "docker:up": "docker-compose -p memesplash up -d",
     "docker:down": "docker-compose -p memesplash down",
     "docker:down-volumes": "docker-compose -p memesplash down -v",
