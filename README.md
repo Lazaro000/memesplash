@@ -1,3 +1,5 @@
+[![test](https://github.com/Lazaro000/memesplash/actions/workflows/test.yml/badge.svg)](https://github.com/Lazaro000/memesplash/actions/workflows/test.yml)
+
 ## Historias de usuario
 
 - El usuario puede registrarse en la plataforma con su nombre, email, contraseña.
