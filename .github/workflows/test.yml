@@ -6,6 +6,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      PORT: 3500
+
     steps:
       - uses: actions/checkout@v2
 
