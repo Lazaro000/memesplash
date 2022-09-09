@@ -24,6 +24,6 @@ export const bootstrap = async () => {
     });
 
     app.listen(process.env.PORT, () =>
-        console.log(`Servidor levantado en el puerto ${process.env.PORT}`)
+        console.log(`🚀 Servidor levantado en el puerto ${process.env.PORT}`)
     );
 };

@@ -10,13 +10,13 @@ export const errorMiddleware = (error, _, res, __) => {
         error instanceof DomainFormatException ||
         error instanceof InfrastructureFormatException
     )
-        return res.status(400).send(error.message);
+        return res.status(400).send({ errorMessage: error.message });
 
     if (error instanceof ApplicationUnauthorizedException)
-        return res.status(401).send(error.message);
+        return res.status(401).send({ errorMessage: error.message });
 
     if (error instanceof ApplicationConflictException)
-        return res.status(409).send(error.message);
+        return res.status(409).send({ errorMessage: error.message });
 
     return res.status(500).send('Error interno del servidor');
 };
